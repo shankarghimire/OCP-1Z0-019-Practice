@@ -1,6 +1,7 @@
 package examples.ch14.set01;
 
 import java.util.Random;
+import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
@@ -28,7 +29,13 @@ public class Test02 {
         //Using MethodReference
         Supplier<Integer> methodRef2 = random::nextInt;
         System.out.println(methodRef2.get());
-
+        ///////////////////
+        BiPredicate<String, String> lambda3 = (a,b) -> a.startsWith(b);
+        System.out.println(lambda3.test(str, "S"));
+        System.out.println(lambda3.test(str, "G"));
+        ///////////////
+        BiPredicate<String, String> methodRef3 = String::startsWith;
+        System.out.println(methodRef3.test(str, "S"));
 
 
     }
